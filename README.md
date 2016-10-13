@@ -31,7 +31,21 @@ The following are gotcha's I ran into that aren't clear when working with *Apoll
 * **Koa** - must be version 2 or higher, use `npm i --save koa@2`
 * **Koa Router** - must be version 7 or higher, use `npm i --save koa-router@7`
 * **Koa Body Parser** - must be version 3 or higher, use `npm i --save koa-bodyparser@3`
-* **Hapi** - currently GraphiQL is experiencing issues
+* **Hapi** - currently GraphiQL is experiencing issues. It seems to be due to the deep copying of plugin options by Hapi. See this thread for more - [https://github.com/apollostack/apollo-server/issues/158#issuecomment-253649546](https://github.com/apollostack/apollo-server/issues/158#issuecomment-253649546). A temporary workaround is provided in that thread and detailed below.
+
+
+### Hapi GraphiQL workaround
+
+Passing the `apolloOptions` in as a function instead of plain object will workaroud the GraphiQL issues. See [server.hapi.js](server.hapi.js) for an example.
+
+```
+apolloOptions: () => ({
+  schema: executableSchema,
+  context: {},
+}),
+```
+
+Follow [apollo-server issue #158]([https://github.com/apollostack/apollo-server/issues/158#issuecomment-253649546](https://github.com/apollostack/apollo-server/issues/158#issuecomment-253649546) for more information on this issue and its resolution.
 
 
 

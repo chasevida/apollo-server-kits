@@ -31,10 +31,13 @@ server.register({
   register: apolloHapi,
   options: {
     path: '/graphql',
-    apolloOptions: {
+    apolloOptions: () => ({
       schema: executableSchema,
       context: {},
-    }
+    }),
+    route: {
+      cors: true
+    },
   },
 });
 
