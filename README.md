@@ -45,7 +45,7 @@ apolloOptions: () => ({
 }),
 ```
 
-Follow [apollo-server issue #158]([https://github.com/apollostack/apollo-server/issues/158#issuecomment-253649546](https://github.com/apollostack/apollo-server/issues/158#issuecomment-253649546) for more information on this issue and its resolution.
+Follow [apollo-server issue #158](https://github.com/apollostack/apollo-server/issues/158) for more information on this issue and its resolution.
 
 
 
